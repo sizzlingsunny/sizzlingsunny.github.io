@@ -11,10 +11,11 @@
   <meta name="HandheldFriendly" content="True">
   <meta name="MobileOptimized" content="320">
   <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0, maximum-scale=1, user-scalable=no, minimal-ui">
+  
 </head>
 <body>
 
-  <audio autoplay loop>
+  <audio id="background_audio" autoplay="autoplay">
   <source src="horse.ogg" type="audio/ogg">
   <source src="background.mp3" type="audio/mpeg">
 Your browser does not support the audio element.
@@ -26,6 +27,17 @@ Your browser does not support the audio element.
       <div class="scores-container">
         <div class="score-container">0</div>
         <div class="best-container">0</div>
+   <a href="#noscroll" id="mute">Mute</a>
+  <script type="text/javascript">
+  var audio = document.getElementById('background_audio');
+
+  document.getElementById('mute').addEventListener('click', function (e)
+  {
+    e = e || window.event;
+    audio.muted = !audio.muted;
+    e.preventDefault();
+  }, false);
+  </script>
       </div>
     </div>
     <p class="game-intro">Match tiles to see more and more of  <strong>Sunny!</strong></p>
